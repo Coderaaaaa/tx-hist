@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tx hist documentary</title>
+    <link rel="icon" type="image/x-icon" href="black.png">
+    <style>
+    h1 {
+        color: #7CAFC4;
+        text-align: center;
+        font-size: 80px;
+        margin-top: 20px; /* Adjust as needed */
+    }
+    p {
+        font-size: 40px;
+        text-align: center;
+    }
+    img {
+        display: block;
+        width: 800px;
+        height: 450px;
+        margin: 0 auto;
+    }
+    .date-container {
+        text-align: center;
+        margin-bottom: 20px; /* Adjust as needed */
+    }
+    .date-container a {
+        color: #7CAFC4;
+        text-decoration: none;
+        font-size: 24px;
+        margin-right: 20px; /* Adjust as needed */
+    }
+    .date-container a:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    .highlight {
+        animation: highlightAnimation 1s ease-in-out;
+    }
+    @keyframes highlightAnimation {
+        0% { background-color: inherit; }
+        50% { background-color: yellow; }
+        100% { background-color: inherit; }
+    }
+    .play-button {
+        position: fixed;
+        bottom: 20px; /* Adjust as needed */
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+        background-size: 400%;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+        animation: rainbow 10s linear infinite;
+    }
+    @keyframes rainbow {
+        0% {
+            background-position: 0%;
+        }
+        100% {
+            background-position: 400%;
+        }
+    }
+    </style>
+</head>
+<body style="background-color: white;">
+    <div class="date-container">
+       <u> <a href="#year1619" onclick="highlightSection('year1619')" style="font-size: 40px; color: blueviolet;">1619</a></u>
+       <u> <a href="#year1641" onclick="highlightSection('year1641')"style="font-size: 40px; color: blueviolet;">1641</a></u>
+       <u> <a href="#year1661" onclick="highlightSection('year1661')"style="font-size: 40px; color: blueviolet;" >1661</a></u>
+    </div>
+    <h1> Slavery Comes to North America, 1619 </h1><br><br><br><br>
+    <img src="slaves.png"><br><br><br><br><br>
+    <h1 id="year1619"> 1619</h1>
+    <p id="p_year1619">In 1619, a Dutch ship arrived in Jamestown, Virginia, bringing with it a group of African people who were forced into slavery. This event marked the beginning of a troubling time in North American history. These Africans were not treated as equals but were made to work without pay and were not free to leave. This was the start of a system where people were treated unfairly based on the color of their skin. It was a sad and difficult time for those who were enslaved and for the country as a whole.</p>
+    <h1 id="year1641">1641</h1>
+    <p id="p_year1641">In 1641, Massachusetts passed laws permitting people to own others as slaves, changing life in the American colonies. Slavery became common, where some people were treated as property and forced to work without pay. This created an unequal system where people had power over others based on their skin color. The acceptance of slavery spread to other colonies, causing widespread inequality and unfairness throughout American history. The laws made slavery legal and normalized its practice, leading to consequences. This time marked a turning point in American society, changing the future.</p>
+    <h1 id="year1661">1661</h1>
+    <p id="p_year1661">In 1661, Virginia passed laws making children of enslaved mothers also slaves, and couples with one enslaved partner had to split up. These rules deepened slavery's life and caused families to break apart. It was a tough time, especially for African people, who suffered the most under these unfair laws. The laws made slavery more permanent and separated families, which was really hard for everyone involved. These harsh rules showed the injustice and inequality that slavery had.</p>
+             
+    <button class="play-button" onclick="toggleAudio()">Play Audio</button>
+    <audio id="myAudio">
+        <source src="slaves come to america.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        var audio = document.getElementById("myAudio");
+        
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+
+        function highlightSection(sectionId) {
+            // Remove highlight from all sections
+            var sections = document.querySelectorAll('h1, p');
+            sections.forEach(function(section) {
+                section.classList.remove('highlight');
+            });
+
+            // Highlight the selected section
+            var selectedSection = document.getElementById(sectionId);
+            selectedSection.classList.add('highlight');
+
+            // Remove highlight after 2 seconds
+            setTimeout(function() {
+                selectedSection.classList.remove('highlight');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
